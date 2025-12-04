@@ -1,5 +1,5 @@
 // Projects data.
-// Note: Here we are getting data from a js file, but in a different project I'll be fetching these projects from some srt of APIs.
+// Note: Here we are getting data from a js file, but in a different project I'll be fetching these projects from some sort of APIs.
 
 const projects = [
 	{
