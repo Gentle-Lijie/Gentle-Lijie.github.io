@@ -26,6 +26,9 @@ jobs:
       - name: Prepare pnpm
         run: corepack prepare pnpm@latest --activate
 
+      - name: Install pnpm (fallback)
+        run: npm install -g pnpm@latest
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
