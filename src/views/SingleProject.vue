@@ -4,6 +4,7 @@ import ProjectHeader from '../components/projects/ProjectHeader.vue';
 import ProjectGallery from '../components/projects/ProjectGallery.vue';
 import ProjectInfo from '../components/projects/ProjectInfo.vue';
 import ProjectRelatedProjects from '../components/projects/ProjectRelatedProjects.vue';
+import projects from '../data/projects';
 
 export default {
 	name: 'Projects',
@@ -13,91 +14,80 @@ export default {
 		ProjectInfo,
 		ProjectRelatedProjects,
 	},
-	data: () => {
+	data() {
 		return {
-			singleProjectHeader: {
-				singleProjectTitle: 'Project Management UI',
-				singleProjectDate: 'Jul 26, 2021',
-				singleProjectTag: 'UI / Frontend',
-			},
-			projectImages: [
+			project: null,
+			singleProjectHeader: {},
+			projectImages: [],
+			projectInfo: {},
+			relatedProject: {},
+		};
+	},
+	created() {
+		this.loadProject();
+	},
+	watch: {
+		'$route.params.slug': function() {
+			this.loadProject();
+		}
+	},
+	methods: {
+		loadProject() {
+			const slug = this.$route.params.slug;
+			const currentProject = projects.find(p => p.slug === slug);
+			
+			if (!currentProject) {
+				// Redirect to projects page if project not found
+				this.$router.push('/projects');
+				return;
+			}
+
+			this.project = currentProject;
+
+			// Set project header
+			this.singleProjectHeader = {
+				singleProjectTitle: currentProject.title,
+				singleProjectDate: 'Recent Project',
+				singleProjectTag: currentProject.category,
+			};
+
+			// Set project images (use the main image multiple times as placeholder)
+			this.projectImages = [
 				{
 					id: 1,
-					title: 'Kabul Project Management UI',
-					img: require('@/assets/images/ui-project-1.jpg'),
+					title: currentProject.title,
+					img: currentProject.img,
 				},
-				{
-					id: 2,
-					title: 'Kabul Project Management UI',
-					img: require('@/assets/images/web-project-2.jpg'),
-				},
-				{
-					id: 3,
-					title: 'Kabul Project Management UI',
-					img: require('@/assets/images/mobile-project-2.jpg'),
-				},
-			],
-			projectInfo: {
-				clientHeading: 'About Client',
+			];
+
+			// Set project info
+			this.projectInfo = {
+				clientHeading: 'About Project',
 				companyInfos: [
 					{
 						id: 1,
-						title: 'Name',
-						details: 'Company Ltd',
+						title: 'Category',
+						details: currentProject.category,
 					},
 					{
 						id: 2,
-						title: 'Services',
-						details: 'UI Design & Frontend Development',
-					},
-					{
-						id: 3,
-						title: 'Website',
-						details: 'https://company.com',
-					},
-					{
-						id: 4,
-						title: 'Phone',
-						details: '555 8888 888',
+						title: 'Repository',
+						details: currentProject.github,
 					},
 				],
 				objectivesHeading: 'Objective',
-				objectivesDetails:
-					'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, natus! Quibusdam enim quod in esse, mollitia molestias incidunt quas ipsa accusamus veniam.',
+				objectivesDetails: currentProject.details.objective,
 				technologies: [
 					{
 						title: 'Tools & Technologies',
-						techs: [
-							'HTML',
-							'CSS',
-							'JavaScript',
-							'Vue.js',
-							'TailwindCSS',
-							'AdobeXD',
-						],
+						techs: currentProject.technologies,
 					},
 				],
 				projectDetailsHeading: 'Challenge',
 				projectDetails: [
 					{
 						id: 1,
-						details:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.',
-					},
-					{
-						id: 2,
-						details:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?',
-					},
-					{
-						id: 3,
-						details:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?',
-					},
-					{
-						id: 4,
-						details:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.',
+						details: currentProject.details.challenge,
 					},
 				],
 				socialSharingsHeading: 'Share This',
@@ -133,33 +123,21 @@ export default {
 						url: 'https://www.youtube.com/c/Gentle-LijieStudio',
 					},
 				],
-			},
-			relatedProject: {
+			};
+
+			// Set related projects (all other projects)
+			this.relatedProject = {
 				relatedProjectsHeading: 'Related Projects',
-				relatedProjects: [
-					{
-						id: 1,
-						title: 'Mobile UI',
-						img: require('@/assets/images/mobile-project-1.jpg'),
-					},
-					{
-						id: 2,
-						title: 'Web Application',
-						img: require('@/assets/images/web-project-1.jpg'),
-					},
-					{
-						id: 3,
-						title: 'UI Design',
-						img: require('@/assets/images/ui-project-2.jpg'),
-					},
-					{
-						id: 4,
-						title: 'Kabul Mobile App UI',
-						img: require('@/assets/images/mobile-project-2.jpg'),
-					},
-				],
-			},
-		};
+				relatedProjects: projects
+					.filter(p => p.id !== currentProject.id)
+					.slice(0, 4)
+					.map(p => ({
+						id: p.id,
+						title: p.title,
+						img: p.img,
+					})),
+			};
+		}
 	},
 	mounted() {
 		feather.replace();
@@ -167,7 +145,6 @@ export default {
 	updated() {
 		feather.replace();
 	},
-	methods: {},
 };
 </script>
 
