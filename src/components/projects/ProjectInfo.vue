@@ -32,13 +32,14 @@ export default {
 					>
 						<span>{{ info.title }}: </span>
 						<a
-							href="#"
+							:href="info.title === 'Repository' ? info.details : '#'"
+							:target="info.title === 'Repository' ? '_blank' : '_self'"
 							:class="
-								info.title == 'Website' || info.title == 'Phone'
+								info.title === 'Website' || info.title === 'Phone' || info.title === 'Repository'
 									? 'hover:underline cursor-pointer'
 									: ''
 							"
-							aria-label="Project Website and Phone"
+							aria-label="Project Info Link"
 							>{{ info.details }}</a
 						>
 					</li>
