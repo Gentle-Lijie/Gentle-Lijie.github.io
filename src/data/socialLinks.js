@@ -1,32 +1,38 @@
 export const socialLinks = [
 	{
 		id: 1,
-		name: 'Website',
+		name: 'Website lijie.space',
 		icon: 'globe',
-		url: 'https://www.stoman.me/',
+		url: 'https://lijie.space',
 	},
 	{
 		id: 2,
-		name: 'GitHub',
+		name: 'GitHub Gentle-Lijie',
 		icon: 'github',
-		url: 'https://github.com/realstoman',
+		url: 'https://github.com/Gentle-Lijie',
 	},
 	{
 		id: 3,
-		name: 'Twitter',
-		icon: 'twitter',
-		url: 'https://twitter.com/realstoman',
+		name: 'Bilibili 温柔的丽姐',
+		icon: 'bilibili',
+		url: 'https://space.bilibili.com/442771251',
+		// favicon from official site
+		faviconUrl: 'https://www.bilibili.com/favicon.ico',
 	},
 	{
 		id: 4,
-		name: 'LinkedIn',
-		icon: 'linkedin',
-		url: 'https://www.linkedin.com/in/realstoman',
+		name: 'Rednote 温柔的丽姐',
+		icon: 'rednote',
+		url: 'https://www.xiaohongshu.com/user/profile/651e5079000000002402faf1',
+		faviconUrl: 'https://www.xiaohongshu.com/favicon.ico',
 	},
 	{
 		id: 5,
-		name: 'YouTube',
-		icon: 'youtube',
-		url: 'https://www.youtube.com/c/realstoman',
+		name: 'Wechat Channels Sweepyzhou',
+		icon: 'wechat',
+		url: '#',
+		// when clicking/showing hover, use this image from assets (resolved by bundler)
+		hoverImage: require('../assets/images/channels.jpg'),
+		faviconUrl: 'https://res.wx.qq.com/t/wx_fed/finder/helper/finder-helper-web/res/favicon-v2.ico',
 	},
 ];

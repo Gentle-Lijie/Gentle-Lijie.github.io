@@ -94,9 +94,33 @@ export default {
 				socialSharings: [
 					{
 						id: 1,
-						name: 'GitHub',
-						icon: 'github',
-						url: currentProject.github,
+						name: 'Twitter',
+						icon: 'twitter',
+						url: 'https://twitter.com/realGentle-Lijie',
+					},
+					{
+						id: 2,
+						name: 'Instagram',
+						icon: 'instagram',
+						url: 'https://instagram.com/realGentle-Lijie',
+					},
+					{
+						id: 3,
+						name: 'Facebook',
+						icon: 'facebook',
+						url: 'https://facebook.com/',
+					},
+					{
+						id: 4,
+						name: 'LinkedIn',
+						icon: 'linkedin',
+						url: 'https://linkedin.com/',
+					},
+					{
+						id: 5,
+						name: 'Youtube',
+						icon: 'youtube',
+						url: 'https://www.youtube.com/c/Gentle-LijieStudio',
 					},
 				],
 			};

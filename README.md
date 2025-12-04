@@ -10,9 +10,9 @@ A simple portfolio starter theme built with Vue.js v3, Composition API and Tailw
 
 ## Other versions of this project
 
--   Nuxt.js Version: [https://github.com/realstoman/nuxtjs-tailwindcss-portfolio](https://github.com/realstoman/nuxtjs-tailwindcss-portfolio)
--   React Version: [https://github.com/realstoman/react-tailwindcss-portfolio](https://github.com/realstoman/react-tailwindcss-portfolio)
--   Next.js Version: [https://github.com/realstoman/nextjs-tailwindcss-portfolio](https://github.com/realstoman/nextjs-tailwindcss-portfolio)
+-   Nuxt.js Version: [https://github.com/realGentle-Lijie/nuxtjs-tailwindcss-portfolio](https://github.com/realGentle-Lijie/nuxtjs-tailwindcss-portfolio)
+-   React Version: [https://github.com/realGentle-Lijie/react-tailwindcss-portfolio](https://github.com/realGentle-Lijie/react-tailwindcss-portfolio)
+-   Next.js Version: [https://github.com/realGentle-Lijie/nextjs-tailwindcss-portfolio](https://github.com/realGentle-Lijie/nextjs-tailwindcss-portfolio)
 
 ## Features
 
@@ -32,7 +32,7 @@ A simple portfolio starter theme built with Vue.js v3, Composition API and Tailw
 -   Scroll to top button
 -   Download file button
 
-### To Contribute to this project, read the [Contribution Guidlines](https://github.com/realstoman/vuejs-tailwindcss-portfolio/blob/main/CONTRIBUTING.md)
+### To Contribute to this project, read the [Contribution Guidlines](https://github.com/realGentle-Lijie/vuejs-tailwindcss-portfolio/blob/main/CONTRIBUTING.md)
 
 ## Setup
 
@@ -49,7 +49,7 @@ brew install node
 2. Clone the repo:
 
 ```
-git clone https://github.com/realstoman/vuejs-tailwindcss-portfolio.git
+git clone https://github.com/realGentle-Lijie/vuejs-tailwindcss-portfolio.git
 ```
 
 3. Open the project folder:
@@ -58,23 +58,39 @@ git clone https://github.com/realstoman/vuejs-tailwindcss-portfolio.git
 cd vuejs-tailwindcss-portfolio
 ```
 
-4. Install packages and dependencies:
+4. Install packages and dependencies. You can use npm, pnpm or yarn. Examples:
 
 ```
+# using npm
 npm install
+
+# using pnpm
+pnpm install
+
+# using yarn
+yarn install
 ```
 
-5. Start a local dev server at `http://localhost:8080`:
+5. Start a local dev server at `http://localhost:8080` (hot reload enabled):
 
 ```
+# using npm
 npm run serve
+
+# using pnpm
+pnpm run dev
+or
+pnpm run serve
+
+# using yarn
+yarn serve
 ```
 
 ## Notes
 
 -   Always run `npm install` after pulling new changes
 -   I'll be constantly updating this repo as I'll be adding more sections to it, so please always check the projects section of this repo to see what tasks are under todo and in progress
--   Coming Soon [I'll be doing a screencast](https://www.youtube.com/realstoman). Soon I'll be uploading a video to my YouTube channel where I'll be going through the process of creating this portoflio
+-   Coming Soon [I'll be doing a screencast](https://www.youtube.com/realGentle-Lijie). Soon I'll be uploading a video to my YouTube channel where I'll be going through the process of creating this portoflio
 -   Illustrations from [unDraw](https://undraw.co) and [Freepik](https://freepik.com)
 -   Images from [Unsplash](https://unsplash.com)
 -   Feel free to use it as your own portfolio
@@ -82,4 +98,4 @@ npm run serve
 
 ### License
 
-[MIT](https://github.com/realstoman/vuejs-tailwindcss-portfolio/blob/main/LICENSE)
+[MIT](https://github.com/realGentle-Lijie/vuejs-tailwindcss-portfolio/blob/main/LICENSE)
